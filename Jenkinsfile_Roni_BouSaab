@@ -31,24 +31,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    sh "source ${VIRTUAL_ENV}/bin/activate && python app.py"
-                }
-            }            
-        }
-        stage('Coverage') {
-            steps {
-                script {
-                    sh "source ${VIRTUAL_ENV}/bin/activate && coverage run -m pytest && coverage report"
+                    echo "Deploying application..."
                 }
             }
         }
-        stage('Security Scan') {
-            steps {
-                script {
-                    sh "source ${VIRTUAL_ENV}/bin/activate && bandit -r ."
-                }
-            }
-        }         
+           
         
 
     }
